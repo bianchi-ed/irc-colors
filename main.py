@@ -9,7 +9,7 @@ init(autoreset=True)
 SERVER = "irc.libera.chat"
 PORT = 6667
 CHANNEL = "#python"
-NICKNAME = "beginnerdev"
+NICKNAME = "yournickname"
 
 class IRCClient:
     def __init__(self, server, port, channel, nickname):
