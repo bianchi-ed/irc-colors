@@ -45,7 +45,7 @@ This is a python study project.
     SERVER = "irc.libera.chat"
     PORT = 6667
     CHANNEL = "#python"
-    NICKNAME = "beginnerdev"
+    NICKNAME = "clientusername"
     ```
 
 2. Run the IRC client:
