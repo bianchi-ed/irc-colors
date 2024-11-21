@@ -87,22 +87,18 @@ irc-colors
 
 ### Command Descriptions
 
-- **`/join <channel>`**: 
+- **`/join <channel>`**
     - **Description**: Join a specified channel.
     - **Usage**: `/join #example_channel`
   
-- **`/leave <channel>`**: 
+- **`/leave <channel>`**
     - **Description**: Leave a specified channel.
     - **Usage**: `/leave #example_channel`
   
-- **`/msg <target> <message>`**: 
+- **`/msg <target> <message>`**
     - **Description**: Send a private message to a user or a message to a channel.
     - **Usage**: `/msg username Hello there!` or `/msg #example_channel Hello everyone!`
   
-- **`/quit <message>`**: 
+- **`/quit <message>`**
     - **Description**: Quit the IRC server with an optional message.
     - **Usage**: `/quit Goodbye!`
-  
-- **`/help`**: 
-    - **Description**: Show this help message.
-    - **Usage**: `/help`
