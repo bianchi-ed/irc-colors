@@ -1,10 +1,10 @@
-# IRC Colors
+#IRC Colors
 
 IRC-Colors is a minimalistic IRC client writen in Python. The client connects to a single IRC server. 
 
 This is a python study project.
 
-## Features
+##Features
 
 - Connect to an IRC server and join multiple channels
 - Send and receive messages
@@ -15,7 +15,7 @@ This is a python study project.
   - `/quit <message>`: Quit the IRC server with an optional message
 - Handle common IRC events:
 
-## Color Coding
+##Color Coding
 - **Light Green** (`Fore.LIGHTGREEN_EX`): Indicates successful receiving/sending messages in channels.
 - **Light Red** (`Fore.LIGHTRED_EX`): Indicates actions such as leaving a channel or quitting the IRC server/client.
 - **Light Yellow** (`Fore.LIGHTYELLOW_EX`): Indicates nickname changes and NOTICE messages
@@ -23,7 +23,7 @@ This is a python study project.
 - **Cyan** (`Fore.CYAN`): Indicates users joining channels.
 - White messages are messages that are probably dont have a handler yet.
 
-## Installation
+##Installation
 
 1. Clone the repository:
     ```sh
@@ -42,7 +42,7 @@ This is a python study project.
     pip install -r requirements.txt
     ```
 
-## Usage
+##Usage
 
 1. Update the server configuration constants in `main.py` if necessary:
     ```python
@@ -63,7 +63,7 @@ This is a python study project.
     - `/msg <target> <message>`: Send a private message to a user or a message to a channel
     - `/quit <message>`: Quit the IRC server with an optional message
 
-## Directory Structure
+##Directory Structure
 
 project/
 ├── commands/                # Directory for IRC command implementations
