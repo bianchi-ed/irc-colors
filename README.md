@@ -1,15 +1,7 @@
 # IRC Colors
-
-IRC-Colors is a minimalistic IRC client writen in Python that runs on the terminal. The client connects to a single IRC server. 
+IRC-Colors is a minimalistic IRC client written in Python that runs on the terminal. The client is able to connect to a single IRC server, join multiple channels, and handle basic IRC commands/events. It uses different colors to display various types of information.
 
 This is a python study project.
-
-## Features
-
-- Connect to a single IRC server and join multiple channels.
-- Send and receive messages.
-- Handle basic IRC commands.
-- Handle common IRC events.
 
 ## Color Coding
 - **Light Green** (`Fore.LIGHTGREEN_EX`): Indicates successful receiving/sending messages in channels.
@@ -37,38 +29,14 @@ This is a python study project.
     pip install -r requirements.txt
     ```
 
-## Directory Structure
-
-```
-irc-colors
-├── commands/                # Directory for IRC command implementations
-│   ├── __init__.py
-│   ├── join.py              # Command to join a channel
-│   ├── leave.py             # Command to leave a channel
-│   ├── msg.py               # Command to send a message
-│   ├── quit.py              # Command to quit the IRC server and client
-├── handlers/                # Directory for IRC event handlers
-│   ├── __init__.py
-│   ├── join.py              # Handler for join events
-│   ├── nick.py              # Handler for nickname change events
-│   ├── notice.py            # Handler for notice events
-│   ├── part.py              # Handler for part events
-│   ├── privmsg.py           # Handler for private message events
-│   ├── quit.py              # Handler for quit events
-├── main.py                  # Main entry point of the IRC client
-├── read.me                  # Project documentation
-└── requirements.txt         # Project dependencies
-
-```
-
 ## Usage
 
 1. Update the server configuration constants in `main.py` if necessary:
     ```python
     SERVER = "irc.libera.chat"
     PORT = 6667
-    CHANNEL = "#python"
-    NICKNAME = "clientusername"
+    CHANNEL = "#targetchannel"
+    NICKNAME = "yournickname"
     ```
 
 2. Run the IRC client:
@@ -78,26 +46,17 @@ irc-colors
 
 ## Available Commands
 
-### Use the following commands in the client:
-    - `/join <channel>`: Join a specified channel
-    - `/leave <channel>`: Leave a specified channel
-    - `/msg <target> <message>`: Send a private message to a user or a message to a channel
-    - `/quit <message>`: Quit the IRC server with an optional message
-    - `/help`: Show this help message
-
-### Command Descriptions
-
 - **`/join <channel>`**
     - **Description**: Join a specified channel.
-    - **Usage**: `/join #example_channel`
+    - **Usage**: `/join #python`
   
 - **`/leave <channel>`**
     - **Description**: Leave a specified channel.
-    - **Usage**: `/leave #example_channel`
+    - **Usage**: `/leave #python`
   
 - **`/msg <target> <message>`**
     - **Description**: Send a private message to a user or a message to a channel.
-    - **Usage**: `/msg username Hello there!` or `/msg #example_channel Hello everyone!`
+    - **Usage**: `/msg username Hello there!` or `/msg #python Hello everyone!`
   
 - **`/quit <message>`**
     - **Description**: Quit the IRC server with an optional message.
