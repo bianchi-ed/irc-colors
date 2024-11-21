@@ -1,4 +1,3 @@
-# commands/quit.py
 from colorama import Fore
 import datetime
 import sys
