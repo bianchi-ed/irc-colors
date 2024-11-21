@@ -13,9 +13,12 @@ This is a python study project.
 
 ## Installation
 
-1. Clone the repository:
+1. Clone the repository and navigate to the directory:
     ```sh
     git clone https://github.com/bianchi-ed/irc-colors.git
+    ```
+
+    ```sh
     cd irc-colors
     ```
 
