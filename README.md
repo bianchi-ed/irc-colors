@@ -17,7 +17,7 @@ This is a python study project.
 - **Light Yellow** (`Fore.LIGHTYELLOW_EX`): Indicates nickname changes and NOTICE messages.
 - **Light Blue** (`Fore.LIGHTBLUE_EX`): Indicates private messages exchange.
 - **Cyan** (`Fore.CYAN`): Indicates users joining channels.
-- White messages are messages that are probably dont have a handler yet.
+- White messages are messages that dont have a handler implemented yet.
 
 ## Installation
 
