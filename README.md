@@ -38,7 +38,7 @@ This is a python study project.
     pip install -r requirements.txt
     ```
 
-##Usage
+## Usage
 
 1. Update the server configuration constants in `main.py` if necessary:
     ```python
@@ -59,7 +59,7 @@ This is a python study project.
     - `/msg <target> <message>`: Send a private message to a user or a message to a channel
     - `/quit <message>`: Quit the IRC server with an optional message
 
-##Directory Structure
+## Directory Structure
 
 project/
 ├── commands/                # Directory for IRC command implementations
