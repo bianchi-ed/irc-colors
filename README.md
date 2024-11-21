@@ -24,6 +24,9 @@ This is a python study project.
     python -m venv venv
     ```
 
+    ```sh
+    venv\Scripts\activate
+    ```
 3. Install the required dependencies:
     ```sh
     pip install -r requirements.txt
