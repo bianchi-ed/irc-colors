@@ -61,7 +61,8 @@ This is a python study project.
 
 ## Directory Structure
 
-project/
+```
+irc-colors
 ├── commands/                # Directory for IRC command implementations
 │   ├── __init__.py
 │   ├── join.py              # Command to join a channel
@@ -79,3 +80,5 @@ project/
 ├── main.py                  # Main entry point of the IRC client
 ├── read.me                  # Project documentation
 └── requirements.txt         # Project dependencies
+
+```
