@@ -78,4 +78,4 @@ This is a python study project.
 - [ ] Create a list command (`/list`) - Show active channels.
 - [ ] Create a whois command (`/whois <nickname>`) - Display user info.
 - [ ] Implement handlers for common numeric events (e.g., RPL_WELCOME, RPL_TOPIC, etc.).
-- [ ] Implement some kind of buffer to better track specific channels/user conversations.
+- [ ] Implement some kind of buffer to better track specific channels/user conversations
