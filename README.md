@@ -74,7 +74,7 @@ This is a python study project.
 ## Roadmap
 
 - [x] Initial release with basic commands and handlers.
-- [ ] Implement nick authentication
+- [ ] Implement nick authentication.
 - [ ] Create a list command (`/list`) - Show active channels.
 - [ ] Create a whois command (`/whois <nickname>`) - Display user info.
 - [ ] Implement handlers for common numeric events (e.g., RPL_WELCOME, RPL_TOPIC, etc.).
