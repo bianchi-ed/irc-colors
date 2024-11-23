@@ -1,18 +1,18 @@
 import datetime
-from colorama import Fore
+from colorama import Fore, Style
+import sys
 
 def handle_privmsg(response):
     parts = response.split(' ')
     user = parts[0].split('!')[0][1:]
     target = parts[2]
     message = ' '.join(parts[3:])[1:]
-    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    timestamp = datetime.datetime.now().strftime('%y-%m-%d %H:%M:%S')
     
     if target.startswith('#'):
-        # Message to a channel
-        colored_message = f"{Fore.LIGHTGREEN_EX}({timestamp}) from @{user} on {target}: {message}{Fore.RESET}"
+        colored_message = f"{Fore.LIGHTGREEN_EX}[{timestamp}] [PRIVMSG] FROM {user} TO CHANNEL {target}: {message}{Fore.RESET}"
     else:
-        # Private message
-        colored_message = f"{Fore.LIGHTBLUE_EX}({timestamp}) from @{user}: {message}{Fore.RESET}"
+        colored_message = f"{Fore.MAGENTA}[{timestamp}] [PRIVMSG] FROM {user} TO YOU: {message}{Fore.RESET}"
 
-    print(colored_message, end='')
+    sys.stdout.write(colored_message + '\n')
+    sys.stdout.write(Style.RESET_ALL)
