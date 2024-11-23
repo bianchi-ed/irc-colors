@@ -32,7 +32,7 @@ This is a python study project.
 
 ## Usage
 
-1. Update the server configuration constants in `main.py` if necessary:
+1. Update the server configuration constants in `irc-colors.py` if necessary:
     ```python
     SERVER = "irc.libera.chat"
     PORT = 6667
@@ -42,7 +42,7 @@ This is a python study project.
 
 2. Run the IRC client:
     ```sh
-    python main.py
+    python irc-colors.py
     ```
 
 ## Available Commands
