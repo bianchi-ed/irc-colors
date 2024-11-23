@@ -3,6 +3,8 @@
 
 # IRC Colors
 
+**This is a Work in Progress Project**
+
 IRC-Colors is a minimalistic IRC client written in Python that runs on the terminal. The client is able to connect to a single IRC server, join multiple channels, and handle basic IRC commands/events. It uses different colors to display various types of information.
 
 This is a python study project.
