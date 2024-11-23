@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/10d9475e-06bb-48dc-af61-df9278457622)
+![image](https://github.com/user-attachments/assets/9af96503-23dc-478b-a1fa-04d6a66502ee)
+
 
 # IRC Colors
 
