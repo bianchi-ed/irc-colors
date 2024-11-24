@@ -46,25 +46,21 @@ IRC-Colors is a minimalistic IRC client written in Python that runs on the termi
 - **Description**: Join a specified channel.
 - **Usage**: `/join #python`
 - **File**: [commands/join.py](commands/join.py)
-- **Function**: [`execute`](commands/join.py)
 
 ### /leave <channel>
 - **Description**: Leave a specified channel.
 - **Usage**: `/leave #python`
 - **File**: [commands/leave.py](commands/leave.py)
-- **Function**: [`execute`](commands/leave.py)
 
 ### /msg <target> <message>
 - **Description**: Send a private message to a user or a message to a channel.
 - **Usage**: `/msg username Hello there!` or `/msg #python Hello everyone!`
 - **File**: [commands/msg.py](commands/msg.py)
-- **Function**: [`execute`](commands/msg.py)
 
 ### /quit <message>
 - **Description**: Quit the IRC server with an optional message.
 - **Usage**: `/quit Goodbye!`
 - **File**: [commands/quit.py](commands/quit.py)
-- **Function**: [`execute`](commands/quit.py)
 
 ## Event Handlers
 
