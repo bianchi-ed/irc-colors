@@ -1,6 +1,5 @@
 from colorama import Fore
 import datetime
-import sys
 
 def quit_connection(client, message="Goodbye!"):
     client.running = False
@@ -14,4 +13,4 @@ def execute(client, parts):
     quit_connection(client, message)
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     print(f"\033[F\033[K{Fore.LIGHTRED_EX}({timestamp}) Disconnected: {message}{Fore.RESET}")
-    sys.exit(0)
+    client.stop()

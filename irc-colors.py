@@ -1,15 +1,11 @@
 import socket
 import threading
 import importlib
-from colorama import init, Fore, Style
+from colorama import init, Fore, Back, Style
+import random
+import ssl
 
 init(autoreset=True)
-
-# Server configuration constants
-SERVER = "irc.libera.chat"
-PORT = 6667
-CHANNEL = "#testtest333"
-NICKNAME = "yournickname"
 
 def print_rainbow_ascii_art():
     ascii_art = r"""
@@ -22,27 +18,35 @@ def print_rainbow_ascii_art():
                          Thanks for using irc-colors.py :) 
                                               - bianchi-ed
     """
-    colors = [Fore.RED, Fore.YELLOW, Fore.GREEN, Fore.CYAN, Fore.BLUE, Fore.MAGENTA]
-    for i, line in enumerate(ascii_art.split('\n')):
+    colors = [Fore.RED, Fore.YELLOW, Fore.GREEN, Fore.CYAN, Fore.BLUE, Fore.MAGENTA, Fore.LIGHTRED_EX, Fore.LIGHTYELLOW_EX, Fore.LIGHTGREEN_EX, Fore.LIGHTCYAN_EX, Fore.LIGHTBLUE_EX, Fore.LIGHTMAGENTA_EX]
+    random.shuffle(colors)
+    for i, line in enumerate(ascii_art.split('\n')): 
         color = colors[i % len(colors)]
         print(color + line + Style.RESET_ALL)
 
-print_rainbow_ascii_art()
-
 class IRCClient:
-    def __init__(self, server, port, channel, nickname):
+    def __init__(self, server, port, channel, nickname, use_tls=False):
         self.server = server
         self.port = port
         self.channel = channel
         self.nickname = nickname
+        self.use_tls = use_tls
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.running = True
 
     def connect(self):
-        self.sock.connect((self.server, self.port))
-        self.sock.send(f"NICK {self.nickname}\r\n".encode('utf-8'))
-        self.sock.send(f"USER {self.nickname} 0 * :{self.nickname}\r\n".encode('utf-8'))
-        self.sock.send(f"JOIN {self.channel}\r\n".encode('utf-8'))
+        try:
+            if self.use_tls:
+                context = ssl.create_default_context()
+                self.sock = context.wrap_socket(self.sock, server_hostname=self.server)
+            self.sock.connect((self.server, self.port))
+            self.sock.send(f"NICK {self.nickname}\r\n".encode('utf-8'))
+            self.sock.send(f"USER {self.nickname} 0 * :{self.nickname}\r\n".encode('utf-8'))
+            self.sock.send(f"JOIN {self.channel}\r\n".encode('utf-8'))
+            return True
+        except (socket.error, socket.gaierror) as e:
+            print(Fore.BLACK + Back.RED + f"Connection error: {e}" + Style.RESET_ALL)
+            return False
 
     def listen(self):
         buffer = ""
@@ -64,13 +68,10 @@ class IRCClient:
                 break
 
     def handle_event(self, response):
-        #print(f"Received response: {response}")  # Debugging line
         parts = response.split()
         if len(parts) < 2:
-            #print("Invalid response format")  # Debugging line
             return False
         event = parts[1].upper()
-        #print(f"Extracted event: {event}")  # Debugging line
         try:
             if event.isdigit():
                 handler_module = importlib.import_module(f'handlers.event_{event.lower()}')
@@ -80,15 +81,13 @@ class IRCClient:
                 handler_function = getattr(handler_module, f'handle_{event.lower()}')
             handler_function(response)
             return True
-        except ImportError as e:
-            #print(f"Handler module not found for event: {event}, error: {e}")  # Debugging line
+        except ImportError:
             return False
-        except AttributeError as e:
-            #print(f"Handler function not found for event: {event}, error: {e}")  # Debugging line
+        except AttributeError:
             return False
 
     def handle_input(self):
-        while True:
+        while self.running:
             command = input()
             if command.startswith('/'):
                 self.execute_command(command)
@@ -105,17 +104,44 @@ class IRCClient:
         except AttributeError:
             print(f"Unknown command function: {command_name}")
 
+    def stop(self):
+        self.running = False
+        self.sock.close()
+
+def main_menu():
+    while True:
+        print_rainbow_ascii_art()
+        print(Fore.GREEN + "1. Connect to a server (Non-TLS)" + Style.RESET_ALL)
+        print(Fore.GREEN + "2. Connect to a server (TLS)" + Style.RESET_ALL)
+        print(Fore.RED + "3. Quit" + Style.RESET_ALL)
+        choice = input(Fore.YELLOW + "\nEnter your choice: " + Style.RESET_ALL)
+        
+        if choice in ['1', '2']:
+            server = input(Fore.YELLOW + "Enter the server: " + Style.RESET_ALL)
+            port = int(input(Fore.YELLOW + "Enter the port: " + Style.RESET_ALL))
+            channel = input(Fore.YELLOW + "Enter the channel: " + Style.RESET_ALL)
+            nickname = input(Fore.YELLOW + "Enter your nickname: " + Style.RESET_ALL)
+            use_tls = choice == '2'
+
+            # Create IRC client instance and connect to server
+            client = IRCClient(server, port, channel, nickname, use_tls)
+            if client.connect():
+                # Separate threads for listening and input handling
+                listen_thread = threading.Thread(target=client.listen)
+                input_thread = threading.Thread(target=client.handle_input)
+
+                listen_thread.start()
+                input_thread.start()
+
+                listen_thread.join()
+                input_thread.join()
+            else:
+                print(Fore.BLACK + Back.RED + "Failed to connect to the server. Please check your details and try again." + Style.RESET_ALL)
+        elif choice == '3':
+            print(Fore.RED + "Quitting..." + Style.RESET_ALL)
+            break
+        else:
+            print(Fore.RED + "Invalid choice. Please try again." + Style.RESET_ALL)
+
 if __name__ == "__main__":
-    # Create IRC client instance and connect to server
-    client = IRCClient(SERVER, PORT, CHANNEL, NICKNAME)
-    client.connect()
-
-    # Separate threads for listening and input handling
-    listen_thread = threading.Thread(target=client.listen)
-    input_thread = threading.Thread(target=client.handle_input)
-
-    listen_thread.start()
-    input_thread.start()
-
-    listen_thread.join()
-    input_thread.join()
+    main_menu()

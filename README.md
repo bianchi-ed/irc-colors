@@ -25,17 +25,7 @@ IRC-Colors is a minimalistic IRC client written in Python that runs on the termi
     pip install -r requirements.txt
     ```
 
-## Usage
-
-1. Update the server configuration constants in `irc-colors.py` if necessary:
-    ```python
-    SERVER = "irc.libera.chat"
-    PORT = 6667
-    CHANNEL = "#targetchannel"
-    NICKNAME = "yournickname"
-    ```
-
-2. Run the IRC client:
+4. Run the IRC client:
     ```sh
     python irc-colors.py
     ```
@@ -57,10 +47,10 @@ IRC-Colors is a minimalistic IRC client written in Python that runs on the termi
 - **Usage**: `/msg username Hello there!` or `/msg #python Hello everyone!`
 - **File**: [commands/msg.py](commands/msg.py)
 
-### /quit <message>
-- **Description**: Quit the IRC server with an optional message.
-- **Usage**: `/quit Goodbye!`
-- **File**: [commands/quit.py](commands/quit.py)
+### /disconnect <message>
+- **Description**: disconnect the IRC server.
+- **Usage**: `/disconnect`
+- **File**: [commands/disconnect.py](commands/disconnect.py)
 
 ## Event Handlers
 
