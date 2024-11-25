@@ -30,6 +30,20 @@ IRC-Colors is a minimalistic IRC client written in Python that runs on the termi
     python irc-colors.py
     ```
 
+## Color Code
+
+- **Light Green (Fore.LIGHTGREEN_EX)**: Used for channel-related messages, events, and commands.
+- **Light Red (Fore.LIGHTRED_EX)**: Used for disconnection, leaving events, and quit events.
+- **Light Blue (Fore.LIGHTBLUE_EX)**: Used for private messages from users to users.
+- **Yellow (Fore.YELLOW)**: Used for notice messages.
+- **Light Yellow (Fore.LIGHTYELLOW_EX)**: Used for nickname and mode changes.
+- **Light Cyan (Fore.LIGHTCYAN_EX)**: Used for server information and welcome messages.
+- **Magenta (Fore.MAGENTA)**: Used for user and connection statistics.
+- **Cyan (Fore.CYAN)**: Used for listing users in a channel.
+- **Black with Cyan Background (Fore.BLACK, Back.CYAN)**: Used for end of message of the day.
+- **Black with Green Background (Fore.BLACK, Back.GREEN)**: Used for channel topics and end of names list.
+- **Blue (Fore.BLUE)**: Used for the message of the day.
+
 ## Available Commands
 
 ### /join <channel>
@@ -48,7 +62,7 @@ IRC-Colors is a minimalistic IRC client written in Python that runs on the termi
 - **File**: [commands/msg.py](commands/msg.py)
 
 ### /disconnect <message>
-- **Description**: disconnect the IRC server.
+- **Description**: Disconnect from the IRC server.
 - **Usage**: `/disconnect`
 - **File**: [commands/disconnect.py](commands/disconnect.py)
 
@@ -72,7 +86,7 @@ IRC-Colors is a minimalistic IRC client written in Python that runs on the termi
 ### PRIVMSG
 - **File**: [handlers/privmsg.py](handlers/privmsg.py)
 - **Description**: Handles private messages sent to a user or a channel.
-- **Color**: Light Green (`Fore.LIGHTGREEN_EX`) for channel messages, Light Blue (`Fore.LIGHTBLUE_EX`) for private messages
+- **Color**: Light Green (`Fore.LIGHTGREEN_EX`) for channel messages, Magenta (`Fore.MAGENTA`) for private messages
 
 ### NOTICE
 - **File**: [handlers/notice.py](handlers/notice.py)
@@ -114,7 +128,7 @@ IRC-Colors is a minimalistic IRC client written in Python that runs on the termi
 ### 005 (RPL_BOUNCE)
 - **File**: [handlers/event_005.py](handlers/event_005.py)
 - **Description**: Server features.
-- **Color**: White (`Fore.WHITE`)
+- **Color**: Light Cyan (`Fore.LIGHTCYAN_EX`)
 
 ### 250 (RPL_STATSCONN)
 - **File**: [handlers/event_250.py](handlers/event_250.py)
@@ -159,24 +173,24 @@ IRC-Colors is a minimalistic IRC client written in Python that runs on the termi
 ### 353 (RPL_NAMREPLY)
 - **File**: [handlers/event_353.py](handlers/event_353.py)
 - **Description**: List of users in a channel.
-- **Color**: Cyan (`Fore.CYAN`)
+- **Color**: Green (`Fore.GREEN`)
 
 ### 366 (RPL_ENDOFNAMES)
 - **File**: [handlers/event_366.py](handlers/event_366.py)
 - **Description**: End of NAMES list.
-- **Color**: Black with Cyan Background (`Fore.BLACK`, `Back.CYAN`)
+- **Color**: Black with Green Background (`Fore.BLACK`, `Back.GREEN`)
 
 ### 372 (RPL_MOTD)
 - **File**: [handlers/event_372.py](handlers/event_372.py)
 - **Description**: Message of the day.
-- **Color**: Blue (`Fore.BLUE`)
+- **Color**: Cyan (`Fore.CYAN`)
 
 ### 375 (RPL_MOTDSTART)
 - **File**: [handlers/event_375.py](handlers/event_375.py)
 - **Description**: Start of the message of the day.
-- **Color**: Black with Blue Background (`Fore.BLACK`, `Back.BLUE`)
+- **Color**: Black with Cyan Background (`Fore.BLACK`, `Back.CYAN`)
 
 ### 376 (RPL_ENDOFMOTD)
 - **File**: [handlers/event_376.py](handlers/event_376.py)
 - **Description**: End of the message of the day.
-- **Color**: Black with Blue Background (`Fore.BLACK`, `Back.BLUE`)
+- **Color**: Black with Cyan Background (`Fore.BLACK`, `Back.CYAN`)

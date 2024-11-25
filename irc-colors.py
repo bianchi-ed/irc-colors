@@ -111,9 +111,9 @@ class IRCClient:
 def main_menu():
     while True:
         print_rainbow_ascii_art()
-        print(Fore.LIGHTCYAN_EX + "1. Connect to a server (Non-TLS)" + Style.RESET_ALL)
-        print(Fore.LIGHTCYAN_EX + "2. Connect to a server (TLS)" + Style.RESET_ALL)
-        print(Fore.LIGHTCYAN_EX + "3. Quit" + Style.RESET_ALL)
+        print(Fore.LIGHTCYAN_EX + "1. Connect to a server (TLS)" + Style.RESET_ALL)
+        print(Fore.LIGHTCYAN_EX + "2. Connect to a server (Non-TLS)" + Style.RESET_ALL)
+        print(Fore.LIGHTCYAN_EX + "3. Close Application" + Style.RESET_ALL)
         choice = input(Fore.LIGHTCYAN_EX + "\nEnter your choice: " + Style.RESET_ALL)
         
         if choice in ['1', '2']:
@@ -121,7 +121,7 @@ def main_menu():
             port = int(input(Fore.LIGHTCYAN_EX + "Enter the port: " + Style.RESET_ALL))
             channel = input(Fore.LIGHTCYAN_EX + "Enter the channel: " + Style.RESET_ALL)
             nickname = input(Fore.LIGHTCYAN_EX + "Enter your nickname: " + Style.RESET_ALL)
-            use_tls = choice == '2'
+            use_tls = choice == '1'
 
             # Create IRC client instance and connect to server
             client = IRCClient(server, port, channel, nickname, use_tls)
