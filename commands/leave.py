@@ -11,4 +11,3 @@ def execute(client, parts):
         channel = parts[1]
         part_channel(client.sock, channel)
         timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        print(f"\033[F\033[K{Fore.LIGHTRED_EX}({timestamp}) Left channel {channel}{Fore.RESET}")

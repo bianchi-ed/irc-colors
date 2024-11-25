@@ -52,7 +52,7 @@ class IRCClient:
         buffer = ""
         while self.running:
             try:
-                data = self.sock.recv(2048).decode('utf-8')
+                data = self.sock.recv(2048).decode('utf-8', errors='replace')
                 if not data:
                     break
                 buffer += data
@@ -65,6 +65,9 @@ class IRCClient:
                         if not handled:
                             print(line)
             except ConnectionAbortedError:
+                break
+            except Exception as e:
+                print(f"Error: {e}")
                 break
 
     def handle_event(self, response):

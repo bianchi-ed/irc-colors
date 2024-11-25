@@ -1,6 +1,6 @@
+import sys
 import datetime
 from colorama import Fore, Style
-import sys
 
 def handle_privmsg(response):
     parts = response.split(' ')
@@ -10,9 +10,9 @@ def handle_privmsg(response):
     timestamp = datetime.datetime.now().strftime('%y-%m-%d %H:%M:%S')
     
     if target.startswith('#'):
-        colored_message = f"{Fore.LIGHTGREEN_EX}[{timestamp}] [PRIVMSG] FROM {user} TO CHANNEL {target}: {message}{Fore.RESET}"
+        colored_message = f"{Fore.GREEN}[{timestamp}] [{target}] {user}: {message}{Fore.RESET}"
     else:
-        colored_message = f"{Fore.MAGENTA}[{timestamp}] [PRIVMSG] FROM {user} TO YOU: {message}{Fore.RESET}"
+        colored_message = f"{Fore.MAGENTA}[{timestamp}] [PRIVMSG] {user}: {message}{Fore.RESET}"
 
     sys.stdout.write(colored_message + '\n')
     sys.stdout.write(Style.RESET_ALL)
