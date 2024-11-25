@@ -11,4 +11,3 @@ def execute(client, parts):
         channel = parts[1]
         join_channel(client.sock, channel)
         timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        print(f"\033[F\033[K{Fore.LIGHTGREEN_EX}({timestamp}) Joined channel {channel}{Fore.RESET}")

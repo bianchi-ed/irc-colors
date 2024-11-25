@@ -12,5 +12,4 @@ def execute(client, parts):
         message = " ".join(parts[1:])
     quit_connection(client, message)
     timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print(f"\033[F\033[K{Fore.LIGHTRED_EX}({timestamp}) Disconnected: {message}{Fore.RESET}")
     client.stop()

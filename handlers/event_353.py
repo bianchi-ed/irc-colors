@@ -15,7 +15,7 @@ def handle_event_353(response):
     
     # Print each line with the desired formatting
     for line in user_lines:
-        colored_message = f"{Fore.CYAN}[{timestamp}] [353] [RPL_NAMREPLY]: {channel} : {line}{Style.RESET_ALL}"
+        colored_message = f"{Fore.GREEN}[{timestamp}] [353] [RPL_NAMREPLY]: {channel} : {line}{Style.RESET_ALL}"
         sys.stdout.write(colored_message + '\n')
     
     sys.stdout.write(Style.RESET_ALL)
