@@ -8,7 +8,7 @@ def handle_part(response):
     channel = parts[2]
     message = ' '.join(parts[3:])[1:] if len(parts) > 3 else ''
     timestamp = datetime.datetime.now().strftime('%y-%m-%d %H:%M:%S')
-    
     colored_message = f"{Fore.LIGHTRED_EX}[{timestamp}] [PART] {user} has left {channel}: {message}{Fore.RESET}"
+    
     sys.stdout.write(colored_message + '\n')
     sys.stdout.write(Style.RESET_ALL)

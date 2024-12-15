@@ -8,7 +8,7 @@ def handle_mode(response):
     target = parts[2]
     message = ' '.join(parts[3:])[1:]
     timestamp = datetime.datetime.now().strftime('%y-%m-%d %H:%M:%S')
-    
     colored_message = f"{Fore.LIGHTYELLOW_EX}[{timestamp}] [MODE] {user} to {target}: {message}{Fore.RESET}"
+
     sys.stdout.write(colored_message + '\n')
     sys.stdout.write(Style.RESET_ALL)

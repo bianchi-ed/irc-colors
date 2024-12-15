@@ -16,4 +16,4 @@ def execute(client, parts):
             color = Fore.LIGHTGREEN_EX
         else:
             color = Fore.LIGHTBLUE_EX
-        print(f"\033[F\033[K{color}({timestamp}) Message sent to {target}: {message}{Fore.RESET}")
+        print(f"\033[F\033[K{color}[{timestamp}] Message sent to {target}: {message}{Fore.RESET}")

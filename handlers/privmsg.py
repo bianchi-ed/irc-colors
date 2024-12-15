@@ -10,7 +10,7 @@ def handle_privmsg(response):
     timestamp = datetime.datetime.now().strftime('%y-%m-%d %H:%M:%S')
     
     if target.startswith('#'):
-        colored_message = f"{Fore.GREEN}[{timestamp}] [{target}] {user}: {message}{Fore.RESET}"
+        colored_message = f"{Fore.CYAN}[{timestamp}] [PRIVMSG] [{target}] {user}: {message}{Fore.RESET}"
     else:
         colored_message = f"{Fore.MAGENTA}[{timestamp}] [PRIVMSG] {user}: {message}{Fore.RESET}"
 

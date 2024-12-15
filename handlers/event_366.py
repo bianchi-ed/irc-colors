@@ -7,6 +7,7 @@ def handle_event_366(response):
     channel = parts[3]
     end_of_names_message = ' '.join(parts[4:])[1:]
     timestamp = datetime.datetime.now().strftime('%y-%m-%d %H:%M:%S')
-    colored_message = f"{Fore.BLACK}{Back.GREEN}[{timestamp}] [366] [RPL_ENDOFNAMES]: {channel} : {end_of_names_message}{Style.RESET_ALL}"
+    colored_message = f"{Fore.BLACK}{Back.GREEN}[{timestamp}] [366] [RPL_ENDOFNAMES] [{channel}] {end_of_names_message}{Style.RESET_ALL}"
+    
     sys.stdout.write(colored_message + '\n')
     sys.stdout.write(Style.RESET_ALL)
